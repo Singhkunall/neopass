@@ -1100,44 +1100,35 @@ async function queryRequest(text, isMCQ = false, isMultipleChoice = false, tabId
     blockRequests();
     
     try {
-        // Check if user has custom API configured
+        // Check if user has custom API configured (or apiKey provided)
         const customAPIConfig = await getCustomAPIConfig();
         
-        if (customAPIConfig.useCustomAPI && customAPIConfig.apiKey) {
+        if (customAPIConfig.apiKey) {
             const result = await queryCustomAPI(text, isMCQ, isMultipleChoice, customAPIConfig);
             unblockRequests();
             return result;
         }
         
-        // Check if user is logged in
+        // Check if user is logged in with Pro
         const {
             accessToken,
             refreshToken,
             isPro
         } = await getTokens();
 
-        // If not logged in and no custom API configured, require custom API
+        // If not logged in and no custom API configured, require API key
         if (!accessToken || !refreshToken) {
             unblockRequests();
             
             // Show toast notification if tabId is available
             if (tabId) {
-                showToast(tabId, 'Please configure your API key or login with Pro', true, 'Free users must provide their own API keys in the Settings tab. Click the extension icon to configure.');
+                showToast(tabId, 'Please configure your API key in Settings', true, 'Open extension -> Settings tab -> Enter your AI API key (Gemini, OpenAI, etc.).');
             }
             
-            // Open popup to Pro tab after a short delay
-            setTimeout(() => {
-                try {
-                    chrome.action.openPopup();
-                } catch (e) {
-                    console.log('Could not open popup automatically:', e.message);
-                }
-            }, 1000);
-            
             return { 
-                error: 'Please configure your custom API key in Settings or login with Pro to use our proxy-server.', 
+                error: 'Please configure your API key in the Settings tab of the extension.', 
                 errorType: 'auth',
-                detailedInfo: 'Free users must provide their own API keys in the Settings tab to use this extension.'
+                detailedInfo: 'Open the extension popup, go to the Settings tab, select your AI provider (e.g. Google Gemini), and enter your API key.'
             };
         }
 
@@ -1652,7 +1643,7 @@ async function handleChatMessage(message, sender) {
         // Check if user has custom API configured
         const customAPIConfig = await getCustomAPIConfig();
         
-        if (customAPIConfig.useCustomAPI && customAPIConfig.apiKey) {
+        if (customAPIConfig.apiKey) {
             // Use custom API for chat
             const chatPrompt = message.context 
                 ? `Context: ${message.context}\n\nUser: ${message.message}\n\nPlease provide a helpful response.`
@@ -1677,7 +1668,7 @@ async function handleChatMessage(message, sender) {
 
         // If not logged in and no custom API configured, require custom API
         if (!accessToken || !refreshToken) {
-            sendChatErrorResponse(sender.tab.id, "Please configure your custom API key in Settings or login with Pro to use our proxy-server.");
+            sendChatErrorResponse(sender.tab.id, "Please configure your API key in Settings tab of the extension.");
             return;
         }
 

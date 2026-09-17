@@ -314,7 +314,7 @@ async function fetchAccountInfo() {
     // Function to handle logout - ensure tabs are refreshed
     function logoutUser() {
         const authKeys = ['loggedIn', 'username', 'accessToken', 'refreshToken', 'isPro', 'stealth', 'loginTimestamp'];
-        chrome.storage.local.remove([...authKeys, ...CUSTOM_API_STORAGE_KEYS]);
+        chrome.storage.local.remove(authKeys);
         showLoggedOutState();
         refreshAllTabs(); // Ensure all tabs are refreshed on logout
     }
@@ -329,7 +329,7 @@ async function fetchAccountInfo() {
                 showError('You have been logged out', 3000);
                 
                 // Clear any remaining auth data
-                chrome.storage.local.remove(['accessToken', 'refreshToken', 'loggedIn', 'username', 'isPro', ...CUSTOM_API_STORAGE_KEYS]);
+                chrome.storage.local.remove(['accessToken', 'refreshToken', 'loggedIn', 'username', 'isPro']);
             }
         }
     });
