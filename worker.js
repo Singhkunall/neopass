@@ -207,7 +207,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 // Version checking functions
 async function checkForUpdate() {
     try {
-    const response = await fetch('https://api.github.com/repos/Max-Eee/NeoPass/releases/latest');
+        const response = await fetch('https://api.github.com/repos/Singhkunall/neopass/releases/latest');
         const data = await response.json();
         const latestVersion = data.tag_name.replace('v', '');
         const currentVersion = chrome.runtime.getManifest().version;
@@ -407,8 +407,8 @@ function showUpdateToast(tabId, message, latestVersion) {
                                 return link;
                             };
 
-                            const downloadLink = createLink('⭳ Download Project ZIP', 'https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip');
-                            const websiteLink = createLink('Website', 'https://neopass.fun');
+                            const downloadLink = createLink('⭳ Download Project ZIP', 'https://github.com/Singhkunall/neopass/archive/refs/heads/main.zip');
+                            const websiteLink = createLink('GitHub Repository', 'https://github.com/Singhkunall/neopass');
 
                             // Add hover effects
                             gradientContainer.onmouseover = () => {
@@ -428,7 +428,7 @@ function showUpdateToast(tabId, message, latestVersion) {
                             // Click handlers
                             gradientContainer.onclick = (e) => {
                                 if (e.target === gradientContainer || e.target === toast || e.target === messageDiv) {
-                                    window.open('https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip');
+                                    window.open('https://github.com/Singhkunall/neopass/archive/refs/heads/main.zip');
                                 }
                             };
 

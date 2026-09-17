@@ -8,20 +8,17 @@
 - **`Managed AI by NeoPass`** : NO API key configuration needed!
 - **`Screenshare Bypass`** : Bypass full-screen restrictions (Share Tab/Window, Blank Screen, or Frozen Screen).
 
-⬇️ [**Click here to get NeoPass Pro!**](https://neopass.fun/pro)
+⬇️ [**Click here to get NeoPass!**](https://github.com/Singhkunall/neopass)
 
 This chrome extension is for students taking tests on the **`Iamneo portal`**, **`HackerRank`**, **`Wildlife Ecology NPTEL`**, **`conservation-geography NPTEL`**, **`forest management NPTEL`** and `other exam portals in chrome browser` that restrict your abilities
 
-### [**Make sure to visit our website for the best experience!**](https://neopass.fun) 🌐
+### [**Visit our GitHub Repository**](https://github.com/Singhkunall/neopass) 🌐
 
 <samp>
   
 > [!IMPORTANT]
 > **Free Users**: No sign-up needed! Configure your own AI API key by clicking the extension icon and going to the **Settings** tab.  
 > Supported providers: OpenAI, Google Gemini, Anthropic Claude, and custom endpoints.
-> 
->
-> **Want a hassle-free experience?** Upgrade to Pro by visiting **neopass.fun/pro** for AI managed by NeoPass (GPT-5.1) and increased rate limits.
 
 > [!WARNING]
 > **Educational Purposes Only**: This extension is intended for educational purposes. Please use it responsibly and ethically.
@@ -55,7 +52,7 @@ This chrome extension is for students taking tests on the **`Iamneo portal`**, *
 
 ## ⬇️ Installation
 
-1. [Download NeoExamShield 1.5.5](https://github.com/Max-Eee/NeoPass/archive/refs/heads/main.zip).
+1. [Download NeoExamShield 1.5.5](https://github.com/Singhkunall/neopass/archive/refs/heads/main.zip).
 2. Open Chrome and go to the Extensions page by typing `chrome://extensions/`.
 3. Enable **Developer mode** in the top right corner.
 4. Click on **Load unpacked** and select the folder where the extension is located.
@@ -76,12 +73,12 @@ https://github.com/user-attachments/assets/eefb46a6-c7d1-4b65-b12b-a0aa674b02d0
 6. Start using all NeoPass features with your own API!
 
 > [!NOTE]
-> **Network Restrictions**: If your school/organization blocks AI service providers (OpenAI, Google, etc.), the extension will not work even with a valid API key. In this case, consider using a VPN or upgrade to Pro by visiting **neopass.fun/pro**.
+> **Network Restrictions**: If your school/organization blocks AI service providers (OpenAI, Google, etc.), the extension will not work even with a valid API key. In this case, consider using a VPN.
 
 ### For Pro Users:
-1. Visit [neopass.fun/pro](https://neopass.fun/pro) to subscribe
+1. Visit [GitHub Repository](https://github.com/Singhkunall/neopass)
 2. Click the extension icon and go to the **Pro** tab
-3. Login with your Pro credentials you have created from the webstie
+3. Login with your Pro credentials
 4. Enjoy hassle-free AI-powered assistance with no configuration needed!
 
 ## ⌨️ Shortcuts
