@@ -1341,7 +1341,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
                 break;
                 
             case 'google':
-                const googleModel = modelName || 'gemini-2.5-flash';
+                const googleModel = modelName || 'gemini-1.5-flash';
                 apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${googleModel}:generateContent?key=${apiKey}`;
                 headers = {
                     'Content-Type': 'application/json'
