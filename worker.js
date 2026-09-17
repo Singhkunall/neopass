@@ -1342,7 +1342,7 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
                 
             case 'google':
                 let googleModel = (modelName || '').trim();
-                if (!googleModel || googleModel === 'gemini-2.5-flash' || googleModel === 'gemini-1.5-flas') {
+                if (!googleModel || googleModel.includes('2.5') || googleModel.endsWith('-flas')) {
                     googleModel = 'gemini-1.5-flash';
                 }
                 apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${googleModel}:generateContent?key=${apiKey}`;
@@ -1402,10 +1402,11 @@ async function queryCustomAPI(text, isMCQ, isMultipleChoice, config) {
         
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));
+            const detailedMsg = errorData.error?.message || errorData.message || `HTTP ${response.status}: ${response.statusText}`;
             return {
-                error: `API request failed: ${response.status}`,
+                error: detailedMsg,
                 errorType: 'api',
-                detailedInfo: errorData.error?.message || errorData.message || `HTTP ${response.status}: ${response.statusText}`
+                detailedInfo: detailedMsg
             };
         }
         
