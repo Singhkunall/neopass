@@ -557,8 +557,13 @@ async function fetchAccountInfo() {
             if (result.customAPIKey && apiKeyInput) {
                 apiKeyInput.value = result.customAPIKey;
             }
-            if (result.customModelName && modelNameInput) {
-                modelNameInput.value = result.customModelName;
+            if (modelNameInput) {
+                let savedModel = result.customModelName || '';
+                if (savedModel === 'gemini-1.5-flas' || savedModel === 'gemini-2.5-flash') {
+                    savedModel = 'gemini-1.5-flash';
+                    chrome.storage.local.set({ customModelName: 'gemini-1.5-flash' });
+                }
+                modelNameInput.value = savedModel;
             }
         });
     }
