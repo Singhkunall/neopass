@@ -208,7 +208,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 async function checkForUpdate() {
     try {
         const response = await fetch('https://api.github.com/repos/Singhkunall/neopass/releases/latest');
+        if (!response.ok) return;
         const data = await response.json();
+        if (!data || !data.tag_name) return;
         const latestVersion = data.tag_name.replace('v', '');
         const currentVersion = chrome.runtime.getManifest().version;
 
